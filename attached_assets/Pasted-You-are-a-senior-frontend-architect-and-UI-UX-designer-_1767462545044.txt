@@ -1,0 +1,98 @@
+You are a senior frontend architect and UI/UX designer.
+
+Context:
+I have COMPLETED the backend of a serious Legal AI platform called “Rakshak”.
+The backend is production-grade, conservative, law-bound, and hallucination-safe.
+
+What is already DONE (DO NOT TOUCH BACKEND):
+- Indian-law–only Legal Reasoning Engine
+- Criminal vs Civil confusion handling
+- Contract / NDA clause validation system
+- High-risk / illegal / no-authoritative-source classification
+- API-based architecture
+- Role-aware responses for:
+  1. Citizens
+  2. Businesses
+  3. Contract Drafters
+  4. Government / PSU
+- Backend is FINAL and MUST NOT be modified
+
+Your task:
+BUILD A **TOP-NOTCH, MODERN, JAW-DROPPING FRONTEND** that makes people say:
+“WHAT THE F*** IS THIS UI?”
+
+Tech stack (MANDATORY):
+- React + Vite
+- Modern CSS (Tailwind preferred, custom CSS allowed)
+- Component-driven architecture
+- Clean folder structure
+- No backend logic inside frontend
+
+Design philosophy:
+- Ultra-modern
+- Clean
+- Premium
+- Minimal but powerful
+- Dark theme first
+- Motion-heavy but smooth
+- Nothing childish or cartoonish
+- Looks like a product that governments & enterprises would TRUST
+
+Core Pages to build:
+1. Landing Page
+2. Role Selection Page
+3. Chat / Query Interface
+4. About / How it Works
+5. API Access / Developer Page (static UI)
+
+Landing Page MUST include:
+- Hero section with bold statement (Legal clarity, not legal advice)
+- Subtle animated gradients
+- Glassmorphism / soft blur panels
+- Smooth scroll
+- Micro-interactions
+- Section showing 4 user roles
+- Trust-focused language (no hype, no fake claims)
+
+Cursor / Mouse Interaction (IMPORTANT):
+- Custom cursor across the site
+- Cursor reacts on hover (scale / glow / magnetic effect)
+- Cursor changes style on buttons, cards, links
+- Inspired by GTA-style cursor / premium game UI
+- Cursor animation should NOT be gimmicky, should feel premium
+
+Chat Interface Requirements:
+- Looks NOTHING like ChatGPT
+- Feels like a “Legal Console”
+- Clear separation between:
+  - User query
+  - Legal analysis
+  - Risk level
+  - Confidence
+  - Citations
+- Role-based UI toggles (Citizen / Business / Drafter / Govt)
+- Clean typography (law-friendly fonts)
+- Animations for message entry
+
+Restrictions (VERY IMPORTANT):
+- Do NOT add legal advice
+- Do NOT add clause drafting
+- Do NOT add suggestions or opinions
+- Frontend must only DISPLAY what backend gives
+- Frontend must respect conservative tone
+
+Output required from you:
+- Complete React + Vite project structure
+- Folder structure
+- All major components
+- Tailwind / CSS setup
+- Custom cursor implementation
+- Animations (Framer Motion if needed)
+- Clean, readable code
+- Production-quality UI (not demo)
+
+You are NOT allowed to ask clarification questions.
+Assume all backend APIs already exist.
+Build like a real startup product, not a tutorial.
+
+Start by generating the project structure and then the code.
