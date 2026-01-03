@@ -100,44 +100,76 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <footer className="border-t border-white/5 bg-black/20 py-12">
-        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-8 text-sm text-muted-foreground">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-foreground">
-              <Shield className="w-4 h-4 text-primary" />
-              <span className="font-heading font-bold tracking-wider">RAKSHAK</span>
+      <footer className="border-t border-white/5 bg-black/40 py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(45_93%_47%_/_0.03),transparent_40%)]" />
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid md:grid-cols-4 gap-12 mb-16">
+            <div className="space-y-6">
+              <Link href="/" className="flex items-center gap-3 interactive group w-fit">
+                <div className="relative w-10 h-10 flex items-center justify-center bg-white/5 rounded-sm border border-white/10 group-hover:border-primary/50 transition-colors">
+                  <Shield className="w-5 h-5 text-primary" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-heading font-bold text-xl tracking-wider uppercase">Rakshak</span>
+                  <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">Sovereign AI</span>
+                </div>
+              </Link>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                The definitive legal reasoning engine for the Indian jurisdiction. Built for absolute precision, zero hallucination, and sovereign compliance.
+              </p>
+              <div className="flex gap-4">
+                {['twitter', 'github', 'linkedin'].map((social) => (
+                  <a key={social} href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:border-primary/50 hover:text-primary transition-all interactive">
+                    <span className="sr-only">{social}</span>
+                    <div className="w-4 h-4 bg-current opacity-70" style={{ maskImage: `url(https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/${social}.svg)`, maskSize: 'contain', maskRepeat: 'no-repeat' }} />
+                  </a>
+                ))}
+              </div>
             </div>
-            <p className="max-w-xs text-xs leading-relaxed">
-              Production-grade Legal Reasoning Engine designed for absolute precision and hallucination-free legal interpretation under Indian Law.
-            </p>
+            
+            <div>
+              <h4 className="font-heading font-bold text-foreground mb-6 uppercase tracking-[0.2em] text-xs">Engine</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/chat?role=citizen" className="text-muted-foreground hover:text-primary transition-colors interactive">Citizen Console</Link></li>
+                <li><Link href="/chat?role=business" className="text-muted-foreground hover:text-primary transition-colors interactive">Enterprise Portal</Link></li>
+                <li><Link href="/chat?role=govt" className="text-muted-foreground hover:text-primary transition-colors interactive">Government Access</Link></li>
+                <li><Link href="/api" className="text-muted-foreground hover:text-primary transition-colors interactive">API Documentation</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-heading font-bold text-foreground mb-6 uppercase tracking-[0.2em] text-xs">Protocol</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/about" className="text-muted-foreground hover:text-primary transition-colors interactive">Reasoning Logic</Link></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors interactive">Data Privacy</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors interactive">Hallucination Benchmarks</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors interactive">Sovereign Cloud</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-heading font-bold text-foreground mb-6 uppercase tracking-[0.2em] text-xs">System Status</h4>
+              <div className="space-y-6">
+                <div className="p-4 rounded-lg bg-white/5 border border-white/5 flex items-center gap-3">
+                  <div className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </div>
+                  <span className="text-xs font-mono text-emerald-500 uppercase tracking-widest">Global Systems Nominal</span>
+                </div>
+                <div className="text-[10px] font-mono text-muted-foreground/50 leading-tight">
+                  CURRENT VERSION: v1.0.4-SOVEREIGN<br />
+                  LAST UPDATE: {new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase()}
+                </div>
+              </div>
+            </div>
           </div>
           
-          <div>
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Platform</h4>
-            <ul className="space-y-2 text-xs">
-              <li><a href="#" className="hover:text-primary">Legal Reasoning Engine</a></li>
-              <li><a href="#" className="hover:text-primary">Contract Analysis</a></li>
-              <li><a href="#" className="hover:text-primary">Conflict Checking</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Compliance</h4>
-            <ul className="space-y-2 text-xs">
-              <li><a href="#" className="hover:text-primary">Indian Penal Code</a></li>
-              <li><a href="#" className="hover:text-primary">Contract Act</a></li>
-              <li><a href="#" className="hover:text-primary">Data Privacy</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">System</h4>
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-500">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Systems Operational
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">
+            <span>© 2026 RAKSHAK TECHNOLOGIES. ALL RIGHTS RESERVED.</span>
+            <div className="flex gap-8">
+              <a href="#" className="hover:text-primary transition-colors">Terms of Protocol</a>
+              <a href="#" className="hover:text-primary transition-colors">Privacy Shield</a>
             </div>
           </div>
         </div>
