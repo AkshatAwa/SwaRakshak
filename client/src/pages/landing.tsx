@@ -98,13 +98,15 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors interactive"
+                className="group p-[1px] rounded-xl overflow-hidden animate-border-rotate-always shadow-2xl"
               >
-                <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                  {item.icon}
+                <div className="animate-border-rotate-content p-8 rounded-xl border border-white/5 bg-background hover:bg-white/[0.04] transition-colors interactive h-full">
+                  <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                    {item.icon}
+                  </div>
+                  <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
