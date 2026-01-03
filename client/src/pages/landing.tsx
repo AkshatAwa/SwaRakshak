@@ -190,7 +190,7 @@ export default function LandingPage() {
             {[
               {
                 role: 'Citizen',
-                image: 'https://images.unsplash.com/photo-1589216532372-1c2a11f90e48?q=80&w=800&auto=format&fit=crop',
+                image: 'https://images.unsplash.com/photo-1531053326607-9d349096d887?q=80&w=800&auto=format&fit=crop',
                 label: '01'
               },
               {

@@ -52,7 +52,7 @@ export default function RoleSelectionPage() {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {roles.map((role, i) => {
           const roleImages = {
-            citizen: 'https://images.unsplash.com/photo-1589216532372-1c2a11f90e48?q=80&w=800&auto=format&fit=crop',
+            citizen: 'https://images.unsplash.com/photo-1531053326607-9d349096d887?q=80&w=800&auto=format&fit=crop',
             business: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
             drafter: 'https://images.unsplash.com/photo-1503551723145-6c040742065b?q=80&w=800&auto=format&fit=crop',
             govt: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=800&auto=format&fit=crop'
