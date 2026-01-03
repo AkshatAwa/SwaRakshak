@@ -111,6 +111,76 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Featured Insights */}
+      <section className="py-24 border-t border-white/5 bg-black/20">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-xl">
+              <span className="text-primary font-mono text-xs uppercase tracking-[0.3em] mb-4 block">System Intelligence</span>
+              <h2 className="font-serif text-3xl md:text-5xl leading-tight">Advanced Legal Reasoning Modules</h2>
+            </div>
+            <Link href="/about">
+              <Button variant="link" className="text-primary hover:text-primary/80 p-0 h-auto interactive uppercase tracking-widest text-xs font-bold group">
+                View Full Documentation <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Criminal Procedure Analyzer",
+                category: "CRPC / BNSS",
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
+                desc: "Real-time mapping of procedural compliance across state jurisdictions."
+              },
+              {
+                title: "Contract Risk Scoring",
+                category: "MERCANTILE LAW",
+                image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop",
+                desc: "Automated identification of unfavorable clauses and indemnity gaps."
+              },
+              {
+                title: "Constitutional Benchmarking",
+                category: "SOVEREIGN RIGHTS",
+                image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=800&auto=format&fit=crop",
+                desc: "Direct referencing of Supreme Court precedence for fundamental rights."
+              }
+            ].map((module, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative flex flex-col bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden interactive"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={module.image} 
+                    alt={module.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-sm bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-primary tracking-widest uppercase">
+                      {module.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-8 relative">
+                  <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-primary transition-colors">{module.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {module.desc}
+                  </p>
+                  <div className="w-12 h-px bg-primary/30 group-hover:w-full transition-all duration-500" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Role Teaser */}
       <section className="py-24 border-t border-white/5 bg-gradient-to-b from-background to-black/40">
         <div className="container mx-auto px-6 text-center">
