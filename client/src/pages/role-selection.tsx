@@ -52,19 +52,19 @@ export default function RoleSelectionPage() {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
         {roles.map((role, i) => {
           const roleImages = {
-            citizen: 'https://images.unsplash.com/photo-1589216532372-1c2a11f90e48?q=80&w=800&auto=format&fit=crop',
+            citizen: 'https://images.unsplash.com/photo-1506146332389-18140dc7b2fb?q=80&w=800&auto=format&fit=crop',
             business: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
             drafter: 'https://images.unsplash.com/photo-1503551723145-6c040742065b?q=80&w=800&auto=format&fit=crop',
             govt: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=800&auto=format&fit=crop'
           };
 
           return (
-            <Link key={role.id} href={`/chat?role=${role.id}`} className="block h-full">
+            <Link key={role.id} href={`/chat?role=${role.id}`} className="block h-full animate-border-rotate rounded-xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative flex flex-col p-8 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-primary/50 transition-all cursor-none interactive h-full overflow-hidden"
+                className="animate-border-rotate-content group relative flex flex-col p-8 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-primary/50 transition-all cursor-none interactive h-full overflow-hidden"
               >
                 <img 
                   src={roleImages[role.id as keyof typeof roleImages]} 
