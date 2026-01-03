@@ -186,19 +186,46 @@ export default function LandingPage() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-5xl mb-16">Who are you verifying for?</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Citizen', 'Business', 'Drafter', 'Government'].map((role, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              {
+                role: 'Citizen',
+                image: 'https://images.unsplash.com/photo-1589216532372-1c2a11f90e48?q=80&w=800&auto=format&fit=crop',
+                label: '01'
+              },
+              {
+                role: 'Business',
+                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
+                label: '02'
+              },
+              {
+                role: 'Drafter',
+                image: 'https://images.unsplash.com/photo-1503551723145-6c040742065b?q=80&w=800&auto=format&fit=crop',
+                label: '03'
+              },
+              {
+                role: 'Government',
+                image: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=800&auto=format&fit=crop',
+                label: '04'
+              }
+            ].map((item, i) => (
               <Link 
-                key={role} 
+                key={item.role} 
                 href="/roles" 
-                className="group relative h-64 rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all interactive block"
+                className="group relative h-80 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 interactive block shadow-2xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 opacity-80" />
+                <img 
+                  src={item.image} 
+                  alt={item.role}
+                  className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
-                  <span className="text-xs font-mono text-primary/70 mb-2 block">0{i+1}</span>
-                  <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">{role}</h3>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
+                  <span className="text-[10px] font-mono text-primary/70 mb-2 block tracking-[0.3em]">{item.label}</span>
+                  <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors tracking-tight">{item.role}</h3>
+                  <div className="w-8 h-1 bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
                 </div>
               </Link>
             ))}
