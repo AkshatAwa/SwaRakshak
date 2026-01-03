@@ -1,0 +1,140 @@
+import { motion } from "framer-motion";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Shield, Scale, Lock, FileSearch } from "lucide-react";
+import heroBg from "@assets/generated_images/abstract_premium_legal_tech_background_dark_navy_gold.png";
+
+export default function LandingPage() {
+  return (
+    <div className="relative">
+      {/* Hero Section */}
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroBg} 
+            alt="Background" 
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(var(--background))_100%)]" />
+        </div>
+
+        <div className="container relative z-10 px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase mb-8 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Production Grade Legal AI
+            </div>
+            
+            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white mb-6">
+              Legal Clarity. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary/50 animate-gradient-x">
+                Not Just Advice.
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+              The first hallucination-safe Legal Reasoning Engine for Indian Law. 
+              Designed for citizens, businesses, and government authorities.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/roles">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 min-w-[200px] h-14 text-base interactive shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                  Initialize Console
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button size="lg" variant="outline" className="border-white/10 hover:bg-white/5 min-w-[200px] h-14 text-base interactive backdrop-blur-sm">
+                  System Architecture
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll to verify</span>
+          <div className="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent" />
+        </motion.div>
+      </section>
+
+      {/* Trust Grid */}
+      <section className="py-24 relative z-10 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Shield className="w-8 h-8 text-primary" />,
+                title: "Hallucination Safe",
+                desc: "Strictly bound by Indian Penal Code & Contract Act. No creative interpretations."
+              },
+              {
+                icon: <Scale className="w-8 h-8 text-primary" />,
+                title: "Production Grade",
+                desc: "Architected for high-concurrency enterprise and government deployment."
+              },
+              {
+                icon: <Lock className="w-8 h-8 text-primary" />,
+                title: "Role-Aware Security",
+                desc: "Dynamic response filtering based on user authorization level."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors interactive"
+              >
+                <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                  {item.icon}
+                </div>
+                <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Role Teaser */}
+      <section className="py-24 border-t border-white/5 bg-gradient-to-b from-background to-black/40">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl mb-16">Who are you verifying for?</h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['Citizen', 'Business', 'Drafter', 'Government'].map((role, i) => (
+              <Link 
+                key={role} 
+                href="/roles" 
+                className="group relative h-64 rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all interactive block"
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/90 opacity-80" />
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
+                  <span className="text-xs font-mono text-primary/70 mb-2 block">0{i+1}</span>
+                  <h3 className="font-heading text-xl font-bold group-hover:text-primary transition-colors">{role}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
