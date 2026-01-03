@@ -98,15 +98,13 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-8 rounded-xl border border-white/5 bg-background hover:bg-white/[0.04] transition-colors interactive animate-border-rotate"
+                className="group p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors interactive"
               >
-                <div className="animate-border-rotate-content bg-background rounded-xl p-0 h-full w-full">
-                  <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                    {item.icon}
-                  </div>
-                  <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                  {item.icon}
                 </div>
+                <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -192,7 +190,7 @@ export default function LandingPage() {
             {[
               {
                 role: 'Citizen',
-                image: 'https://images.unsplash.com/photo-1506146332389-18140dc7b2fb?q=80&w=800&auto=format&fit=crop',
+                image: 'https://images.unsplash.com/photo-1589216532372-1c2a11f90e48?q=80&w=800&auto=format&fit=crop',
                 label: '01'
               },
               {
@@ -214,22 +212,20 @@ export default function LandingPage() {
               <Link 
                 key={item.role} 
                 href="/roles" 
-                className="group relative h-80 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 interactive block shadow-2xl animate-border-rotate"
+                className="group relative h-80 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 interactive block shadow-2xl"
               >
-                <div className="animate-border-rotate-content rounded-2xl overflow-hidden bg-background">
-                  <img 
-                    src={item.image} 
-                    alt={item.role}
-                    className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
-                    <span className="text-[10px] font-mono text-primary/70 mb-2 block tracking-[0.3em]">{item.label}</span>
-                    <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors tracking-tight">{item.role}</h3>
-                    <div className="w-8 h-1 bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
-                  </div>
+                <img 
+                  src={item.image} 
+                  alt={item.role}
+                  className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 group-hover:scale-110 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-left">
+                  <span className="text-[10px] font-mono text-primary/70 mb-2 block tracking-[0.3em]">{item.label}</span>
+                  <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors tracking-tight">{item.role}</h3>
+                  <div className="w-8 h-1 bg-primary mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
                 </div>
               </Link>
             ))}
