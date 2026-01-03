@@ -6,9 +6,13 @@ export function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 25, stiffness: 700 };
+  const springConfig = { damping: 35, stiffness: 400, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
+
+  const outlineSpringConfig = { damping: 40, stiffness: 300, mass: 0.8 };
+  const outlineXSpring = useSpring(cursorX, outlineSpringConfig);
+  const outlineYSpring = useSpring(cursorY, outlineSpringConfig);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -43,10 +47,10 @@ export function CustomCursor() {
         }}
       />
       <motion.div
-        className="cursor-outline fixed pointer-events-none z-[9998] border border-primary/50 h-10 w-10 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out"
+        className="cursor-outline fixed pointer-events-none z-[9998] border border-primary/50 h-10 w-10 rounded-full -translate-x-1/2 -translate-y-1/2 transition-[width,height,background-color,border-color] duration-300 ease-out"
         style={{
-          left: cursorXSpring,
-          top: cursorYSpring,
+          left: outlineXSpring,
+          top: outlineYSpring,
         }}
       />
     </>
