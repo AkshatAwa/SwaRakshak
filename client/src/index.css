@@ -94,12 +94,13 @@
     left: -50%;
     animation: border-rotate 4s linear infinite;
     z-index: 0;
-    opacity: 0;
+    opacity: 0.5; /* Always visible but subtle */
     transition: opacity 0.3s ease;
   }
 
   .animate-border-rotate:hover::before {
     opacity: 1;
+    animation-duration: 2s; /* Faster on hover */
   }
 
   .animate-border-rotate-content {
