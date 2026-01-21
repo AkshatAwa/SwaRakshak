@@ -9,6 +9,8 @@ import ChatPage from "@/pages/chat";
 import AboutPage from "@/pages/about";
 import ApiPage from "@/pages/api-docs";
 import NotFound from "@/pages/not-found";
+import LegalDraftPage from "./pages/LegalDraftPage";
+import DraftModeSelect from "./pages/DraftModeSelect";
 
 function Router() {
   return (
@@ -16,6 +18,8 @@ function Router() {
       <Route path="/" component={LandingPage} />
       <Route path="/roles" component={RoleSelectionPage} />
       <Route path="/chat" component={ChatPage} />
+      <Route path="/draft/workspace" component={LegalDraftPage} />
+      <Route path="/draft/select" component={DraftModeSelect} />
       <Route path="/about" component={AboutPage} />
       <Route path="/api" component={ApiPage} />
       <Route component={NotFound} />

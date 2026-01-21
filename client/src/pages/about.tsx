@@ -12,7 +12,7 @@ export default function AboutPage() {
         
         <div className="prose prose-invert prose-lg max-w-none">
           <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-            Rakshak is built on a fundamental principle: <span className="text-primary">Code is Law, but Law is not Code.</span> It requires nuance, context, and a deep understanding of jurisdiction.
+            SwaRakshak is built on a fundamental principle: <span className="text-primary">Code is Law, but Law is not Code.</span> It requires nuance, context, and a deep understanding of jurisdiction.
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 my-12">

@@ -13,9 +13,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/roles", label: "Select Role" },
-    { href: "/chat", label: "Console" },
     { href: "/about", label: "Protocol" },
-    { href: "/api", label: "API Access" },
+    { href: "/api", label: "Developer Area" },
   ];
 
   return (
@@ -29,13 +28,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Shield className="w-5 h-5 text-primary" />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-bold text-xl tracking-wider uppercase">Rakshak</span>
+              <span className="font-heading font-bold text-xl tracking-wider uppercase">SwaRakshak</span>
               <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">Sovereign AI</span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 gap-8">
             {navLinks.map((link) => (
               <Link 
                 key={link.href} 
@@ -54,12 +54,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 )}
               </Link>
             ))}
+          </nav>
+
+          {/* Launch Console (Right Side – unchanged behaviour) */}
+          <div className="hidden md:block">
             <Link href="/chat">
-              <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 interactive uppercase tracking-wider text-xs font-bold">
+              <Button
+                variant="outline"
+                className="border-primary/50 text-primary hover:bg-primary/10 interactive uppercase tracking-wider text-xs font-bold"
+              >
                 Launch Console
               </Button>
             </Link>
-          </nav>
+          </div>
+
 
           {/* Mobile Toggle */}
           <button 
@@ -110,7 +118,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-heading font-bold text-xl tracking-wider uppercase">Rakshak</span>
+                  <span className="font-heading font-bold text-xl tracking-wider uppercase">SwaRakshak</span>
                   <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">Sovereign AI</span>
                 </div>
               </Link>
@@ -166,7 +174,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
           
           <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">
-            <span>© 2026 RAKSHAK TECHNOLOGIES. ALL RIGHTS RESERVED.</span>
+            <span>© 2026 SwaRakshak TECHNOLOGIES. ALL RIGHTS RESERVED.</span>
             <div className="flex gap-8">
               <a href="#" className="hover:text-primary transition-colors">Terms of Protocol</a>
               <a href="#" className="hover:text-primary transition-colors">Privacy Shield</a>

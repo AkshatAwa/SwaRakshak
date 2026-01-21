@@ -60,56 +60,96 @@ export default function LandingPage() {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
-        >
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll to verify</span>
-          <div className="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent" />
-        </motion.div>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.8, duration: 0.8 }}
+  className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground/50"
+>
+  {/* STATIC TEXT */}
+  <span className="text-[10px] uppercase tracking-[0.2em]">
+    Scroll to verify
+  </span>
+
+  {/* ANIMATED LINE */}
+  <div className="relative h-12 w-px overflow-hidden">
+    <motion.div
+      initial={{ y: "100%", opacity: 0 }}
+      animate={{
+        y: ["100%", "0%", "0%"],
+        opacity: [0, 1, 0],
+      }}
+      transition={{
+        duration: 2.2,
+        times: [0, 0.55, 1], // reach top, pause, fade
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatDelay: 0.2,
+      }}
+      className="absolute bottom-0 w-px h-full bg-gradient-to-b from-primary/50 to-transparent"
+    />
+  </div>
+</motion.div>
+
+
+
       </section>
 
       {/* Trust Grid */}
-      <section className="py-24 relative z-10 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Shield className="w-8 h-8 text-primary" />,
-                title: "Hallucination Safe",
-                desc: "Strictly bound by Indian Penal Code & Contract Act. No creative interpretations."
-              },
-              {
-                icon: <Scale className="w-8 h-8 text-primary" />,
-                title: "Production Grade",
-                desc: "Architected for high-concurrency enterprise and government deployment."
-              },
-              {
-                icon: <Lock className="w-8 h-8 text-primary" />,
-                title: "Role-Aware Security",
-                desc: "Dynamic response filtering based on user authorization level."
-              }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group p-8 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-colors interactive"
-              >
-                <div className="mb-6 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                  {item.icon}
-                </div>
-                <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+<section className="py-28 relative bg-background">
+  <div className="container mx-auto px-6">
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          icon: <Shield className="w-7 h-7" />,
+          title: "Hallucination Safe",
+          desc: "Strictly bound to Indian Penal Code & Contract Act. Outputs are deterministic, not creative guesses.",
+        },
+        {
+          icon: <Scale className="w-7 h-7" />,
+          title: "Production Grade",
+          desc: "Designed for high-concurrency enterprise and government systems with audit-ready outputs.",
+        },
+        {
+          icon: <Lock className="w-7 h-7" />,
+          title: "Role-Aware Security",
+          desc: "Responses adapt dynamically based on authorization level, jurisdiction, and access scope.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={i}
+          initial="rest"
+          whileHover="hover"
+          animate="rest"
+          className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 transition-shadow hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.6)]"
+        >
+          {/* ICON CAPSULE */}
+          <motion.div
+            variants={{
+              rest: { rotate: 0 },
+              hover: { rotate: -6 },
+            }}
+            transition={{ type: "spring", stiffness: 220, damping: 14 }}
+            className="mb-6 w-12 h-12 flex items-center justify-center rounded-xl bg-primary/15 text-primary"
+          >
+            {item.icon}
+          </motion.div>
+
+          <h3 className="font-heading text-xl font-semibold mb-3">
+            {item.title}
+          </h3>
+
+          <p className="text-muted-foreground leading-relaxed">
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
 
       {/* Featured Insights */}
       <section className="py-24 border-t border-white/5 bg-black/20">
@@ -190,7 +230,7 @@ export default function LandingPage() {
             {[
               {
                 role: 'Citizen',
-                image: 'https://images.unsplash.com/photo-1531053326607-9d349096d887?q=80&w=800&auto=format&fit=crop',
+                image: 'https://images.unsplash.com/photo-1454923634634-bd1614719a7b?q=80&w=800&auto=format&fit=crop',
                 label: '01'
               },
               {
